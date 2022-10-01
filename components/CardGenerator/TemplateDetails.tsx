@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { Fragment, useContext, useState } from "react";
-import { TemplatesContext } from "../store/templates-context";
+import { TemplatesContext } from "../../store/templates-context";
 import Template from "../models/template";
 import Multiselect from "multiselect-react-dropdown";
 

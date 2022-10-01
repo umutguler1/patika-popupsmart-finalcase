@@ -1,12 +1,12 @@
 import React from "react";
-import Template from "../models/template";
+import Template from "../components/models/template";
 
-import template1 from "../Templates/template1";
-import template2 from "../Templates/template2";
-import template3 from "../Templates/template3";
-import template4 from "../Templates/template4";
+import template1 from "../components/Templates/template1";
+import template2 from "../components/Templates/template2";
+import template3 from "../components/Templates/template3";
+import template4 from "../components/Templates/template4";
 
-import personPhone from "../../public/assets/person_phone.avif";
+import personPhone from "../public/assets/person_phone.avif";
 
 type TemplatesContextObj = {
   template: React.FC<{

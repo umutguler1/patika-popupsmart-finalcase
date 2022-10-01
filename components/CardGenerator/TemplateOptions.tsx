@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { TemplatesContext } from "../store/templates-context";
+import { TemplatesContext } from "../../store/templates-context";
 import { useRouter } from "next/router";
 
 const Templates = () => {
