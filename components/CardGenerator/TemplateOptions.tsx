@@ -14,9 +14,7 @@ const Templates = () => {
 
   return (
     <div className="grid px-52 gap-4 py-8">
-      <h1 className="font-poppins text-4xl font-bold mt-8">
-        Modal Card Generator
-      </h1>
+      <h1 className="text-4xl font-bold mt-8">Modal Card Generator</h1>
       <p className="w-[500px]">
         Measure your return on email marketing efforts easier and faster by
         using thebest online tools. Popupsmart is ready to help you build an
@@ -32,7 +30,7 @@ const Templates = () => {
         {templates.map((t) => (
           <div
             key={t.props.id}
-            className="pointer-events-none grid place-content-center border-2 w-[500px] h-[450px] rounded-3xl border-custom-dark-gray bg-custom-light-gray scale-50"
+            className="pointer-events-none grid place-content-center border-2 w-[450px] h-[400px] rounded-3xl border-custom-dark-gray bg-custom-light-gray scale-50"
           >
             <t.template templateProps={t.props} />
             <button

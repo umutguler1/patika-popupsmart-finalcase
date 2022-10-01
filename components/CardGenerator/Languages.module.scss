@@ -1,5 +1,14 @@
 .options{
     width: 450px;
+
+    div{
+        border-radius: 12px;
+        border-width: 2px;
+        border-color: #EAEAEA;
+    }
+    input {
+        padding: 4px 8px 4px 8px;
+    }
     
     span{
         background-color: #EAEAEA;
