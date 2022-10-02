@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { Fragment, useContext, useState } from "react";
+import React, { Fragment, useContext, useState, useRef } from "react";
 import { TemplatesContext } from "../../store/templates-context";
 import Template from "../models/template";
 import Multiselect from "multiselect-react-dropdown";
@@ -28,6 +28,13 @@ const TemplateDetails = () => {
   const [selectedButton, setSelectedButton] = useState("Medium");
   const [selectedPosition, setSelectedPosition] = useState("5");
 
+  const [getCodeClicked, setGetCodeClicked] = useState(false);
+
+  const secondsRef = useRef<HTMLInputElement>(null);
+  const scrollRef = useRef<HTMLInputElement>(null);
+  const trafficSourceRef = useRef<HTMLInputElement>(null);
+  const browserLanguageRef = useRef<any>(null);
+
   const [templateProps, setTemplateProps] = useState<Template>({
     title: "",
     text: "",
@@ -40,11 +47,15 @@ const TemplateDetails = () => {
   const templatesCtx = useContext(TemplatesContext);
   const templates = templatesCtx;
 
+  if (!router) {
+    return <h3 className="font-semibold text-2xl m-12">Loading...</h3>;
+  }
+
   const templateId = router.query.templateId;
   const selectedTemplate = templates.find((t) => t.props.id === templateId);
 
   if (!selectedTemplate) {
-    return;
+    return <h3 className="font-semibold text-2xl m-12">Loading...</h3>;
   }
 
   // The functions below can only be triggered with a button. Therefore, setting the type "any" for the events is not a problem.
@@ -75,6 +86,22 @@ const TemplateDetails = () => {
       setTemplateProps((prevProps) => {
         return { ...prevProps, text: enteredContent };
       });
+    } else if (content === templateProps.text2) {
+      setTemplateProps((prevProps) => {
+        return { ...prevProps, text2: enteredContent };
+      });
+    } else if (content === templateProps.text3) {
+      setTemplateProps((prevProps) => {
+        return { ...prevProps, text3: enteredContent };
+      });
+    } else if (content === templateProps.text4) {
+      setTemplateProps((prevProps) => {
+        return { ...prevProps, text4: enteredContent };
+      });
+    } else if (content === templateProps.text5) {
+      setTemplateProps((prevProps) => {
+        return { ...prevProps, text5: enteredContent };
+      });
     } else if (content === templateProps.buttonText1) {
       setTemplateProps((prevProps) => {
         return { ...prevProps, buttonText1: enteredContent };
@@ -86,6 +113,14 @@ const TemplateDetails = () => {
     } else if (content === templateProps.inputText) {
       setTemplateProps((prevProps) => {
         return { ...prevProps, inputText: enteredContent };
+      });
+    } else if (content === templateProps.inputText2) {
+      setTemplateProps((prevProps) => {
+        return { ...prevProps, inputText2: enteredContent };
+      });
+    } else if (content === templateProps.inputText3) {
+      setTemplateProps((prevProps) => {
+        return { ...prevProps, inputText3: enteredContent };
       });
     } else if (content === templateProps.buttonText2) {
       setTemplateProps((prevProps) => {
@@ -123,8 +158,15 @@ const TemplateDetails = () => {
     }
   };
 
-  const selectLanguagesHandler = (event: any) => {
-    console.log(event.target.value);
+  const submitHandler = (event: any) => {
+    event.preventDefault();
+
+    // console.log(secondsRef.current!.value);
+    // console.log(scrollRef.current!.value);
+    // console.log(trafficSourceRef.current);
+    const selectedLanguages = browserLanguageRef.current.getSelectedItems();
+    // console.log(selectedLanguages);
+    setGetCodeClicked(true);
   };
 
   if (templateProps.title === "") {
@@ -150,7 +192,10 @@ const TemplateDetails = () => {
             }
           />
         </div>
-        <div className="grid gap-y-8 py-4 -mt-[340px]">
+        <form
+          onSubmit={submitHandler}
+          className="grid gap-y-8 py-4 -mt-[340px]"
+        >
           {/* ..*/}
           {/* ..*/}
           {/* SIZE */}
@@ -287,8 +332,8 @@ const TemplateDetails = () => {
             <div className="flex items-center justify-between w-[400px]">
               <button
                 onClick={changeColorHandler}
-                id="#000000"
-                className="w-16 h-16 rounded-xl bg-black border"
+                id="#666666"
+                className="w-16 h-16 rounded-xl bg-[#666666] border"
               ></button>
               <button
                 onClick={changeColorHandler}
@@ -320,21 +365,19 @@ const TemplateDetails = () => {
             {templateProps.logoUrl !== undefined && (
               <div className="grid gap-y-4">
                 <h5 className="text-lg font-semibold">Upload Logo</h5>
-                <form>
-                  <label
-                    htmlFor="logoInput"
-                    className="cursor-pointer px-4 py-2 bg-custom-purple text-custom-white rounded-lg hover:brightness-125 transition-all"
-                  >
-                    Select Logo
-                  </label>
-                  <input
-                    accept="image/*"
-                    type="file"
-                    id="logoInput"
-                    onChange={selectFileHandler}
-                    className="hidden"
-                  />
-                </form>
+                <label
+                  htmlFor="logoInput"
+                  className="w-fit cursor-pointer px-4 py-2 bg-custom-purple text-custom-white rounded-lg hover:brightness-125 transition-all"
+                >
+                  Select Logo
+                </label>
+                <input
+                  accept="image/*"
+                  type="file"
+                  id="logoInput"
+                  onChange={selectFileHandler}
+                  className="hidden"
+                />
                 {templateProps.logoUrl && (
                   <button
                     onClick={resetFileHandler}
@@ -373,10 +416,58 @@ const TemplateDetails = () => {
               onChange={changeContentHandler}
               className={editContentInputClasses}
             />
+            {templateProps.text2 !== undefined && (
+              <input
+                type="text"
+                defaultValue={templateProps.text2}
+                onChange={changeContentHandler}
+                className={editContentInputClasses}
+              />
+            )}
+            {templateProps.text3 !== undefined && (
+              <input
+                type="text"
+                defaultValue={templateProps.text3}
+                onChange={changeContentHandler}
+                className={editContentInputClasses}
+              />
+            )}
+            {templateProps.text4 !== undefined && (
+              <input
+                type="text"
+                defaultValue={templateProps.text4}
+                onChange={changeContentHandler}
+                className={editContentInputClasses}
+              />
+            )}
+            {templateProps.text5 !== undefined && (
+              <input
+                type="text"
+                defaultValue={templateProps.text5}
+                onChange={changeContentHandler}
+                className={editContentInputClasses}
+              />
+            )}
             {templateProps.inputText !== undefined && (
               <input
                 type="text"
                 defaultValue={templateProps.inputText}
+                onChange={changeContentHandler}
+                className={editContentInputClasses}
+              />
+            )}
+            {templateProps.inputText2 !== undefined && (
+              <input
+                type="text"
+                defaultValue={templateProps.inputText2}
+                onChange={changeContentHandler}
+                className={editContentInputClasses}
+              />
+            )}
+            {templateProps.inputText3 !== undefined && (
+              <input
+                type="text"
+                defaultValue={templateProps.inputText3}
                 onChange={changeContentHandler}
                 className={editContentInputClasses}
               />
@@ -400,21 +491,19 @@ const TemplateDetails = () => {
             {templateProps.imageUrl && (
               <div className="grid gap-y-4">
                 <h5 className="text-lg">Upload Image</h5>
-                <form>
-                  <label
-                    htmlFor="imgInput"
-                    className="cursor-pointer px-4 py-2 bg-custom-purple text-custom-white rounded-lg hover:brightness-125 transition-all"
-                  >
-                    Select Image
-                  </label>
-                  <input
-                    accept="image/*"
-                    type="file"
-                    id="imgInput"
-                    onChange={selectFileHandler}
-                    className="hidden"
-                  />
-                </form>
+                <label
+                  htmlFor="imgInput"
+                  className="w-fit cursor-pointer px-4 py-2 bg-custom-purple text-custom-white rounded-lg hover:brightness-125 transition-all"
+                >
+                  Select Image
+                </label>
+                <input
+                  accept="image/*"
+                  type="file"
+                  id="imgInput"
+                  onChange={selectFileHandler}
+                  className="hidden"
+                />
                 {templateProps.imageUrl !== selectedTemplate.props.imageUrl && (
                   <button
                     onClick={resetFileHandler}
@@ -490,6 +579,7 @@ const TemplateDetails = () => {
                 type="number"
                 min="0"
                 placeholder="12"
+                ref={secondsRef}
               />
             </div>
             <div className="grid gap-y-2">
@@ -503,6 +593,7 @@ const TemplateDetails = () => {
                 min="0"
                 max="100"
                 placeholder="50"
+                ref={scrollRef}
               />
             </div>
 
@@ -514,6 +605,7 @@ const TemplateDetails = () => {
               <input
                 className="border-2 rounded-xl px-3 py-2 w-[450px]"
                 placeholder="Enter your traffic source domain"
+                ref={trafficSourceRef}
               />
             </div>
             <div className="mt-12 grid gap-y-2">
@@ -535,6 +627,7 @@ const TemplateDetails = () => {
                   ]}
                   showCheckbox
                   className={langClasses.options}
+                  ref={browserLanguageRef}
                 />
               </div>
             </div>
@@ -578,14 +671,20 @@ const TemplateDetails = () => {
               <p>Send click data</p>
             </div>
           </div>
-          <button className="bg-custom-purple text-custom-white px-8 py-4 rounded-xl w-fit  drop-shadow-lg">
+          <button
+            type="submit"
+            className="bg-custom-purple text-custom-white px-8 py-4 rounded-xl w-fit  drop-shadow-lg"
+          >
             Get your Code
           </button>
-          <div className="bg-[#333333] w-fit h-fit p-3 rounded-lg">
-            <button className="bg-custom-purple text-custom-white text-sm rounded-full px-4 py-2 w-fit float-right">
-              Copy the code
-            </button>
-          </div>
+          {getCodeClicked && (
+            <div className="bg-[#333333] w-fit h-fit p-3 rounded-lg">
+              <p className="text-custom-white">test</p>
+              <button className="bg-custom-purple text-custom-white text-sm rounded-full px-4 py-2 w-fit float-right">
+                Copy the code
+              </button>
+            </div>
+          )}
           <div className="flex">
             <svg
               width="16"
@@ -611,7 +710,7 @@ const TemplateDetails = () => {
               {"</body>"} tag of your website template file.
             </p>
           </div>
-        </div>
+        </form>
       </div>
     </Fragment>
   );

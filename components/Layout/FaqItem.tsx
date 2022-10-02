@@ -65,9 +65,9 @@ const FaqItem: React.FC<{ id: string; text: string; answer: string }> = (
         </button>
       </div>
       {questionClasses === questionActiveClasses ? (
-        <p className="pb-6">{props.answer}</p>
+        <p className="pb-6 w-3/4">{props.answer}</p>
       ) : (
-        <hr />
+        <hr className="-mx-6" />
       )}
     </li>
   );

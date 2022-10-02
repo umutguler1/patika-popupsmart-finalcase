@@ -1,19 +1,82 @@
-import React from 'react'
-import Template from '../models/template'
+import React from "react";
+import Template from "../models/template";
 
-const template2:React.FC<{templateProps:Template}> = (props) => {
+const template3: React.FC<{ templateProps: Template }> = (props) => {
+  console.log(props.templateProps.inputText2);
   return (
-    <div className='grid gap-y-4 bg-custom-white place-content-center place-items-center text-center p-8 rounded-lg'>
-    
-<h2 className='text-2xl font-semibold'>{props.templateProps.title}</h2>
-<p className='text-lg'>{props.templateProps.text}</p>
-<div className='flex space-x-2'>
-<button className='px-10 py-2 rounded-lg border-2 border-custom-dark-gray font-semibold'>{props.templateProps.buttonText1}</button>
-<button className='px-10 py-2 rounded-lg bg-custom-purple text-custom-white font-semibold'>{props.templateProps.buttonText2}</button>
-</div>
+    <div className="grid gap-y-3 bg-custom-white place-content-center text-center p-8 rounded-lg w-[400px]">
+      <h2 className={`text-lg text-[${props.templateProps.color}]`}>
+        {props.templateProps.title}
+      </h2>
+      <h2 className="text-2xl font-semibold">{props.templateProps.text}</h2>
+      <p>{props.templateProps.text2}</p>
+      <form className="grid gap-y-3">
+        <div className="grid place-items-start">
+          <div className="flex items-center space-x-2">
+            <input
+              type="radio"
+              id="i1"
+              value={props.templateProps.inputText}
+              name="plan"
+              className={`accent-[${props.templateProps.color}]`}
+            />
+            <label htmlFor="i1" className="font-semibold">
+              {props.templateProps.inputText}
+            </label>
+          </div>
+          <p className="text-sm text-[#717791] ml-6">
+            {props.templateProps.text3}
+          </p>
+        </div>
 
-</div>
-  )
-}
+        <div className="grid place-items-start">
+          <div className="flex items-center space-x-2">
+            <input
+              type="radio"
+              id="i2"
+              value={props.templateProps.inputText2}
+              name="plan"
+              className={`accent-[${props.templateProps.color}]`}
+            />
+            <label htmlFor="i2" className="font-semibold">
+              {props.templateProps.inputText2}
+            </label>
+          </div>
+          <p className="text-sm text-[#717791] ml-6">
+            {props.templateProps.text4}
+          </p>
+        </div>
 
-export default template2
+        <div className="grid place-items-start">
+          <div className="flex items-center space-x-2">
+            <input
+              type="radio"
+              id="i3"
+              name="plan"
+              value={props.templateProps.inputText3}
+              className={`accent-[${props.templateProps.color}]`}
+            />
+            <label htmlFor="i3" className="font-semibold">
+              {props.templateProps.inputText3}
+            </label>
+          </div>
+          <p className="text-sm text-[#717791] ml-6">
+            {props.templateProps.text5}
+          </p>
+        </div>
+      </form>
+      <div className="flex items-center justify-around font-semibold">
+        <button className="border-2 px-8 py-2 rounded-xl">
+          {props.templateProps.buttonText1}
+        </button>
+        <button
+          className={`border px-8 py-2 rounded-xl bg-[${props.templateProps.color}] text-custom-white`}
+        >
+          {props.templateProps.buttonText2}
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default template3;

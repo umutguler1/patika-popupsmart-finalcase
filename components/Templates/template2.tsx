@@ -3,7 +3,7 @@ import Template from "../models/template";
 
 const template2: React.FC<{ templateProps: Template }> = (props) => {
   return (
-    <div className="grid gap-y-4 bg-custom-white place-content-center place-items-center text-center p-8 rounded-lg">
+    <div className="grid gap-y-4 bg-custom-white place-content-center place-items-center text-center p-8 rounded-lg w-[400px]">
       <img
         src={props.templateProps.imageUrl}
         alt="phoneImage"
