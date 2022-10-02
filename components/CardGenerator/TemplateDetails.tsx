@@ -194,7 +194,7 @@ const TemplateDetails = () => {
         </div>
         <form
           onSubmit={submitHandler}
-          className="grid gap-y-8 py-4 -mt-[340px]"
+          className="grid gap-y-8 py-4 -mt-[320px]"
         >
           {/* ..*/}
           {/* ..*/}

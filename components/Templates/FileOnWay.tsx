@@ -1,9 +1,9 @@
 import React from "react";
 import Template from "../models/template";
 
-const template5: React.FC<{ templateProps: Template }> = (props) => {
+const FileOnWay: React.FC<{ templateProps: Template }> = (props) => {
   return (
-    <div className="grid gap-y-4 bg-custom-white text-center p-8 rounded-lg w-[400px]">
+    <div className="grid gap-y-4 bg-custom-white text-center p-8 rounded-lg w-[400px] h-[350px]">
       <h2 className="text-2xl font-semibold">{props.templateProps.title}</h2>
       <p className="text-lg px-4">{props.templateProps.text}</p>
 
@@ -16,4 +16,4 @@ const template5: React.FC<{ templateProps: Template }> = (props) => {
   );
 };
 
-export default template5;
+export default FileOnWay;

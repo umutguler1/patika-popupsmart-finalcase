@@ -1,9 +1,9 @@
 import React from "react";
 import Template from "../models/template";
 
-const template4: React.FC<{ templateProps: Template }> = (props) => {
+const DeleteProfile: React.FC<{ templateProps: Template }> = (props) => {
   return (
-    <div className="grid gap-y-4 bg-custom-white place-content-center place-items-center text-center p-8 rounded-lg w-[400px]">
+    <div className="grid gap-y-4 bg-custom-white place-content-center place-items-center text-center p-8 rounded-lg w-[400px] h-[350px]">
       {props.templateProps.logoUrl ? (
         <img
           src={props.templateProps.logoUrl}
@@ -47,4 +47,4 @@ const template4: React.FC<{ templateProps: Template }> = (props) => {
   );
 };
 
-export default template4;
+export default DeleteProfile;

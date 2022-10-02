@@ -1,11 +1,11 @@
 import React from "react";
 import Template from "../components/models/template";
 
-import template1 from "../components/Templates/template1";
-import template2 from "../components/Templates/template2";
-import template3 from "../components/Templates/template3";
-import template4 from "../components/Templates/template4";
-import template5 from "../components/Templates/template5";
+import SecurityCode from "../components/Templates/SecurityCode";
+import InstallLocal from "../components/Templates/InstallLocal";
+import ChooseBest from "../components/Templates/ChooseBest";
+import DeleteProfile from "../components/Templates/DeleteProfile";
+import FileOnWay from "../components/Templates/FileOnWay";
 import template6 from "../components/Templates/template6";
 import template7 from "../components/Templates/template7";
 import template8 from "../components/Templates/template8";
@@ -36,7 +36,7 @@ type TemplatesContextObj = {
 }[];
 const templates = [
   {
-    template: template1,
+    template: SecurityCode,
     props: {
       id: "t1",
       title: "Security Code",
@@ -49,7 +49,7 @@ const templates = [
     },
   },
   {
-    template: template2,
+    template: InstallLocal,
     props: {
       id: "t2",
       title: "Install Local now",
@@ -61,7 +61,7 @@ const templates = [
     },
   },
   {
-    template: template3,
+    template: ChooseBest,
     props: {
       id: "t3",
       title: "PLANS",
@@ -79,7 +79,7 @@ const templates = [
     },
   },
   {
-    template: template4,
+    template: DeleteProfile,
     props: {
       id: "t4",
       title: "Delete your profile",
@@ -91,7 +91,7 @@ const templates = [
     },
   },
   {
-    template: template5,
+    template: FileOnWay,
     props: {
       id: "t5",
       title: "The file is on it's way",

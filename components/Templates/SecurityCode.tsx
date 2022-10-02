@@ -1,9 +1,9 @@
 import React from "react";
 import Template from "../models/template";
 
-const template1: React.FC<{ templateProps: Template }> = (props) => {
+const SecurityCode: React.FC<{ templateProps: Template }> = (props) => {
   return (
-    <div className="grid gap-y-4 bg-custom-white place-content-center place-items-center text-center p-8 rounded-lg w-[400px]">
+    <div className="grid gap-y-4 bg-custom-white place-content-center place-items-center text-center p-8 rounded-lg w-[400px] h-[350px]">
       {props.templateProps.logoUrl ? (
         <img
           src={props.templateProps.logoUrl}
@@ -36,7 +36,7 @@ const template1: React.FC<{ templateProps: Template }> = (props) => {
         className="p-2 border w-full rounded-lg"
       ></input>
       <div className="flex space-x-2">
-        <button className="px-10 py-2 rounded-lg border-2 border-custom-dark-gray font-semibold">
+        <button className="px-10 py-2 rounded-lg border-2 border-custom-dark-gray font-semibold ">
           {props.templateProps.buttonText1}
         </button>
         <button
@@ -49,4 +49,4 @@ const template1: React.FC<{ templateProps: Template }> = (props) => {
   );
 };
 
-export default template1;
+export default SecurityCode;

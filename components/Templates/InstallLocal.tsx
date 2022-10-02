@@ -1,9 +1,9 @@
 import React from "react";
 import Template from "../models/template";
 
-const template2: React.FC<{ templateProps: Template }> = (props) => {
+const InstallLocalNow: React.FC<{ templateProps: Template }> = (props) => {
   return (
-    <div className="grid gap-y-4 bg-custom-white place-content-center place-items-center text-center p-8 rounded-lg w-[400px]">
+    <div className="grid gap-y-4 bg-custom-white place-content-center place-items-center text-center p-8 rounded-lg w-[400px] h-[350px]">
       <img
         src={props.templateProps.imageUrl}
         alt="phoneImage"
@@ -25,4 +25,4 @@ const template2: React.FC<{ templateProps: Template }> = (props) => {
   );
 };
 
-export default template2;
+export default InstallLocalNow;
