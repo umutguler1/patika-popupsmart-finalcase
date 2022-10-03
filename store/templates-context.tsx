@@ -86,6 +86,7 @@ const templates = [
       text: "Your profile will be automatically deleted after 1 month.",
       text2: "You won’t be able to access to your profile after 30.08.2021.",
       color: "#7D4AEA",
+      logoUrl: "",
       buttonText1: "Delete my profile",
       buttonText2: "Cancel",
     },

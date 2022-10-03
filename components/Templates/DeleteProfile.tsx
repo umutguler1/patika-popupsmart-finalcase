@@ -8,12 +8,12 @@ const DeleteProfile: React.FC<{ templateProps: Template }> = (props) => {
         <img
           src={props.templateProps.logoUrl}
           alt="logo"
-          className="w-24 h-24 object-cover"
+          className="w-20 h-20 rounded-xl object-cover"
         />
       ) : (
         <svg
-          width="90"
-          height="90"
+          width="70"
+          height="70"
           viewBox="0 0 90 90"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -29,9 +29,9 @@ const DeleteProfile: React.FC<{ templateProps: Template }> = (props) => {
         </svg>
       )}
 
-      <h2 className="text-2xl font-semibold">{props.templateProps.title}</h2>
-      <p className="text-lg ">{props.templateProps.text}</p>
-      <p className="text-[#777777] px-8">{props.templateProps.text2}</p>
+      <h2 className="text-xl font-semibold">{props.templateProps.title}</h2>
+      <p className="">{props.templateProps.text}</p>
+      <p className="text-[#777777] px-8 text-sm">{props.templateProps.text2}</p>
 
       <div className="grid gap-y-2">
         <button

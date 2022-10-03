@@ -6,16 +6,10 @@ import Multiselect from "multiselect-react-dropdown";
 
 import toggleBtnClasses from "./ToggleButton.module.scss";
 import langClasses from "./Languages.module.scss";
-
-const sizeButtonsClasses = "mx-1 px-4 py-2 rounded-lg transition-all";
-const sizeButtonsClassesActive =
-  "mx-1 px-4 py-2 rounded-lg bg-custom-white text-black transition-all";
-
-const positionsClasses = "border-2 border-[#DDDDDD]";
-const positionsClassesActive = "border-2 border-[#7D4AEA] bg-[#7D4AEA]";
-
-const editContentInputClasses =
-  "border-2 rounded-xl px-3 py-2 w-[450px] ring-2 ring-transparent ring-inset focus:ring-custom-purple focus:ring-opacity-50 focus:drop-shadow-xl";
+import ColorSelection from "./ColorSelection";
+import EditContent from "./EditContent";
+import SelectPosition from "./SelectPosition";
+import SelectSize from "./SelectSize";
 
 const toggleButton = (
   <label className={toggleBtnClasses.switch}>
@@ -196,170 +190,21 @@ const TemplateDetails = () => {
           onSubmit={submitHandler}
           className="grid gap-y-8 py-4 -mt-[320px]"
         >
-          {/* ..*/}
-          {/* ..*/}
           {/* SIZE */}
-          <div>
-            <h5 className="text-lg font-semibold">Size</h5>
-            <div className="flex items-center rounded-xl bg-custom-light-gray w-fit px-2 py-1 font-semibold text-[#777777]">
-              <button
-                onClick={selectSizeHandler}
-                className={
-                  selectedButton === "Small"
-                    ? sizeButtonsClassesActive
-                    : sizeButtonsClasses
-                }
-              >
-                Small
-              </button>
-              <button
-                onClick={selectSizeHandler}
-                className={
-                  selectedButton === "Medium"
-                    ? sizeButtonsClassesActive
-                    : sizeButtonsClasses
-                }
-              >
-                Medium
-              </button>
-              <button
-                onClick={selectSizeHandler}
-                className={
-                  selectedButton === "Large"
-                    ? sizeButtonsClassesActive
-                    : sizeButtonsClasses
-                }
-              >
-                Large
-              </button>
-            </div>
-          </div>
-          {/* ..*/}
-          {/* ..*/}
+          <SelectSize
+            selectSizeHandler={selectSizeHandler}
+            selectedButton={selectedButton}
+          />
+
           {/* POSITION */}
-          <div>
-            <h5 className="text-lg font-semibold">Position</h5>
-            <div className="grid grid-cols-3 gap-2 w-32 h-24">
-              <button
-                id="1"
-                onClick={selectPositionHandler}
-                className={
-                  selectedPosition === "1"
-                    ? "border-2 border-[#7D4AEA] bg-[#7D4AEA] rounded-tl-lg"
-                    : "border-2 border-[#DDDDDD] rounded-tl-lg"
-                }
-              ></button>
-              <button
-                id="2"
-                onClick={selectPositionHandler}
-                className={
-                  selectedPosition === "2"
-                    ? positionsClassesActive
-                    : positionsClasses
-                }
-              ></button>
-              <button
-                id="3"
-                onClick={selectPositionHandler}
-                className={
-                  selectedPosition === "3"
-                    ? "border-2 border-[#7D4AEA] bg-[#7D4AEA] rounded-tr-lg"
-                    : "border-2 border-[#DDDDDD] rounded-tr-lg"
-                }
-              ></button>
-              <button
-                id="4"
-                onClick={selectPositionHandler}
-                className={
-                  selectedPosition === "4"
-                    ? positionsClassesActive
-                    : positionsClasses
-                }
-              ></button>
-              <button
-                id="5"
-                onClick={selectPositionHandler}
-                className={
-                  selectedPosition === "5"
-                    ? positionsClassesActive
-                    : positionsClasses
-                }
-              ></button>
-              <button
-                id="6"
-                onClick={selectPositionHandler}
-                className={
-                  selectedPosition === "6"
-                    ? positionsClassesActive
-                    : positionsClasses
-                }
-              ></button>
-              <button
-                id="7"
-                onClick={selectPositionHandler}
-                className={
-                  selectedPosition === "7"
-                    ? "border-2 border-[#7D4AEA] bg-[#7D4AEA] rounded-bl-lg"
-                    : "border-2 border-[#DDDDDD] rounded-bl-lg"
-                }
-              ></button>
-              <button
-                id="8"
-                onClick={selectPositionHandler}
-                className={
-                  selectedPosition === "8"
-                    ? positionsClassesActive
-                    : positionsClasses
-                }
-              ></button>
-              <button
-                id="9"
-                onClick={selectPositionHandler}
-                className={
-                  selectedPosition === "9"
-                    ? "border-2 border-[#7D4AEA] bg-[#7D4AEA] rounded-br-lg"
-                    : "border-2 border-[#DDDDDD] rounded-br-lg"
-                }
-              ></button>
-            </div>
-          </div>
+          <SelectPosition
+            selectPositionHandler={selectPositionHandler}
+            selectedPosition={selectedPosition}
+          />
 
-          {/* ..*/}
-          {/* ..*/}
           {/* COLORS */}
-          <div>
-            <h5 className="text-lg font-semibold">Colors</h5>
-            <div className="flex items-center justify-between w-[400px]">
-              <button
-                onClick={changeColorHandler}
-                id="#666666"
-                className="w-16 h-16 rounded-xl bg-[#666666] border"
-              ></button>
-              <button
-                onClick={changeColorHandler}
-                id="#7D4AEA"
-                className="w-16 h-16 rounded-xl bg-custom-purple border"
-              ></button>
-              <button
-                onClick={changeColorHandler}
-                id="#F37C34"
-                className="w-16 h-16 rounded-xl bg-[#F37C34] border"
-              ></button>
-              <button
-                onClick={changeColorHandler}
-                id="#777777"
-                className="w-16 h-16 rounded-xl bg-[#777777] border"
-              ></button>
-              <button
-                onClick={changeColorHandler}
-                id="#DDDDDD"
-                className="w-16 h-16 rounded-xl bg-[#DDDDDD] border"
-              ></button>
-            </div>
-          </div>
+          <ColorSelection changeColorHandler={changeColorHandler} />
 
-          {/* ..*/}
-          {/* ..*/}
           {/* UPLOAD LOGO */}
           <div className="">
             {templateProps.logoUrl !== undefined && (
@@ -399,123 +244,15 @@ const TemplateDetails = () => {
               <h3>Content</h3>
             </div>
           </div>
-          {/* ..*/}
-          {/* ..*/}
+
           {/* EDIT CONTENT */}
-          <h5 className="text-lg">Edit your content</h5>
-          <div className="grid gap-y-4">
-            <input
-              type="text"
-              defaultValue={templateProps.title}
-              onChange={changeContentHandler}
-              className={editContentInputClasses}
-            />
-            <input
-              type="text"
-              defaultValue={templateProps.text}
-              onChange={changeContentHandler}
-              className={editContentInputClasses}
-            />
-            {templateProps.text2 !== undefined && (
-              <input
-                type="text"
-                defaultValue={templateProps.text2}
-                onChange={changeContentHandler}
-                className={editContentInputClasses}
-              />
-            )}
-            {templateProps.text3 !== undefined && (
-              <input
-                type="text"
-                defaultValue={templateProps.text3}
-                onChange={changeContentHandler}
-                className={editContentInputClasses}
-              />
-            )}
-            {templateProps.text4 !== undefined && (
-              <input
-                type="text"
-                defaultValue={templateProps.text4}
-                onChange={changeContentHandler}
-                className={editContentInputClasses}
-              />
-            )}
-            {templateProps.text5 !== undefined && (
-              <input
-                type="text"
-                defaultValue={templateProps.text5}
-                onChange={changeContentHandler}
-                className={editContentInputClasses}
-              />
-            )}
-            {templateProps.inputText !== undefined && (
-              <input
-                type="text"
-                defaultValue={templateProps.inputText}
-                onChange={changeContentHandler}
-                className={editContentInputClasses}
-              />
-            )}
-            {templateProps.inputText2 !== undefined && (
-              <input
-                type="text"
-                defaultValue={templateProps.inputText2}
-                onChange={changeContentHandler}
-                className={editContentInputClasses}
-              />
-            )}
-            {templateProps.inputText3 !== undefined && (
-              <input
-                type="text"
-                defaultValue={templateProps.inputText3}
-                onChange={changeContentHandler}
-                className={editContentInputClasses}
-              />
-            )}
-            {templateProps.buttonText1 !== undefined && (
-              <input
-                type="text"
-                defaultValue={templateProps.buttonText1}
-                onChange={changeContentHandler}
-                className={editContentInputClasses}
-              />
-            )}
-            {templateProps.buttonText2 !== undefined && (
-              <input
-                type="text"
-                defaultValue={templateProps.buttonText2}
-                onChange={changeContentHandler}
-                className={editContentInputClasses}
-              />
-            )}
-            {templateProps.imageUrl && (
-              <div className="grid gap-y-4">
-                <h5 className="text-lg">Upload Image</h5>
-                <label
-                  htmlFor="imgInput"
-                  className="w-fit cursor-pointer px-4 py-2 bg-custom-purple text-custom-white rounded-lg hover:brightness-125 transition-all"
-                >
-                  Select Image
-                </label>
-                <input
-                  accept="image/*"
-                  type="file"
-                  id="imgInput"
-                  onChange={selectFileHandler}
-                  className="hidden"
-                />
-                {templateProps.imageUrl !== selectedTemplate.props.imageUrl && (
-                  <button
-                    onClick={resetFileHandler}
-                    id="resetImage"
-                    className="w-fit px-4 py-2 rounded-lg bg-custom-purple text-custom-white hover:brightness-125 transition-all"
-                  >
-                    Reset Image
-                  </button>
-                )}
-              </div>
-            )}
-          </div>
+          <EditContent
+            templateProps={templateProps}
+            changeContentHandler={changeContentHandler}
+            selectedTemplate={selectedTemplate}
+            selectFileHandler={selectFileHandler}
+            resetFileHandler={resetFileHandler}
+          />
 
           <div className="flex items-center space-x-4 mt-12">
             <p className="flex p-2 bg-custom-dark-gray text-center rounded-full w-9 h-9 font-bold place-content-center items-center">
