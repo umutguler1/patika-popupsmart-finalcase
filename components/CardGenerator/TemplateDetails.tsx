@@ -7,9 +7,11 @@ import Multiselect from "multiselect-react-dropdown";
 import toggleBtnClasses from "./ToggleButton.module.scss";
 import langClasses from "./Languages.module.scss";
 import ColorSelection from "./ColorSelection";
+
 import EditContent from "./EditContent";
 import SelectPosition from "./SelectPosition";
 import SelectSize from "./SelectSize";
+import CustomizedPopup from "./CustomizedPopup";
 
 const toggleButton = (
   <label className={toggleBtnClasses.switch}>
@@ -449,6 +451,10 @@ const TemplateDetails = () => {
           </div>
         </form>
       </div>
+      <CustomizedPopup
+        template={selectedTemplate.template}
+        templateProps={templateProps}
+      />
     </Fragment>
   );
 };

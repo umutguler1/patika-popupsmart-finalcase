@@ -1,6 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { TemplatesContext } from "../../store/templates-context";
 import { useRouter } from "next/router";
+
+import PageNumbers from "../Layout/PageNumbers";
 
 const Templates = () => {
   const router = useRouter();
@@ -8,9 +10,22 @@ const Templates = () => {
 
   const templates = templatesCtx;
 
+  const templatesPerPage = 12;
+
+  const [currentPageNumber, setCurrentPageNumber] = useState<number>(1);
+  const indexOfLastTemplate = currentPageNumber * templatesPerPage;
+  const indexOfFirstTemplate = indexOfLastTemplate - templatesPerPage;
+
+  const paginate = (pageNumber: number) => setCurrentPageNumber(pageNumber);
+
   const selectTemplateHandler = (event: any) => {
     router.push("/card-generator/" + event.target.id);
   };
+
+  const currentTemplates = templates.slice(
+    indexOfFirstTemplate,
+    indexOfLastTemplate
+  );
 
   return (
     <div className="grid px-52 gap-2 py-8">
@@ -27,7 +42,7 @@ const Templates = () => {
         <h3 className="text-lg font-semibold">Choose your template</h3>
       </div>
       <div className="grid grid-cols-4 place-items-center">
-        {templates.map((t) => (
+        {currentTemplates.map((t) => (
           <div
             key={t.props.id}
             className="pointer-events-none grid place-content-center p-8 border-2 w-[480px] h-[430px] -mb-36 rounded-3xl border-custom-dark-gray bg-custom-light-gray scale-50"
@@ -39,11 +54,18 @@ const Templates = () => {
               className="grid transition-all absolute rounded-3xl text-2xl font-semibold opacity-0 hover:opacity-100 hover:bg-custom-purple hover:bg-opacity-60 pointer-events-auto w-full h-full"
             >
               <div className="px-8 py-7 bg-custom-white place-self-center text-custom-purple rounded-xl w-fit">
-                Select Template
+                Select Templates
               </div>
             </button>
           </div>
         ))}
+      </div>
+      <div className="mt-16">
+        <PageNumbers
+          paginate={paginate}
+          templatesPerPage={templatesPerPage}
+          totalTemplates={templates.length}
+        />
       </div>
     </div>
   );
