@@ -1,5 +1,5 @@
 import React from "react";
-import Template from "../models/template";
+import Template from "../../models/template";
 
 const CustomizedPopup: React.FC<{
   template: React.FC<{

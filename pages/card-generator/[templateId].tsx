@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 
 import React from "react";
-import TemplateDetails from "../../components/CardGenerator/TemplateDetails";
+import TemplateDetails from "../../components/CardGenerator/TemplateDetails/TemplateDetails";
 import Faq from "../../components/Layout/Faq";
 import Footer from "../../components/Layout/Footer";
 import FooterAd from "../../components/Layout/FooterAd";

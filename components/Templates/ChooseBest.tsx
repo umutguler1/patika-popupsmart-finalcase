@@ -2,7 +2,6 @@ import React from "react";
 import Template from "../models/template";
 
 const ChooseBest: React.FC<{ templateProps: Template }> = (props) => {
-  console.log(props.templateProps.inputText2);
   return (
     <div className="grid gap-y-3 bg-custom-white place-content-center text-center p-8 rounded-lg w-[400px] h-[350px]">
       <h2 className={`text-lg text-[${props.templateProps.color}]`}>

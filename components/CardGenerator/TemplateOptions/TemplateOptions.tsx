@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import { TemplatesContext } from "../../store/templates-context";
+import { TemplatesContext } from "../../../store/templates-context";
 import { useRouter } from "next/router";
 
-import PageNumbers from "../Layout/PageNumbers";
+import PageNumbers from "../../Layout/PageNumbers";
 
 const Templates = () => {
   const router = useRouter();

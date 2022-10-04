@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import Template from "../models/template";
+import Template from "../../models/template";
 
 const editContentInputClasses =
   "border-2 rounded-xl px-3 py-2 w-[450px] ring-2 ring-transparent ring-inset focus:ring-custom-purple focus:ring-opacity-50 focus:drop-shadow-xl";

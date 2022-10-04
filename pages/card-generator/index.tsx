@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import React from "react";
-import TemplateOptions from "../../components/CardGenerator/TemplateOptions";
+import TemplateOptions from "../../components/CardGenerator/TemplateOptions/TemplateOptions";
 import Head from "next/head";
 
 const cardGenerator: NextPage = () => {

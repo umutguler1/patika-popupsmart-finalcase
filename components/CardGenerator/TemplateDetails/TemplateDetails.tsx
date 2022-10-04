@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React, { Fragment, useContext, useState, useRef } from "react";
-import { TemplatesContext } from "../../store/templates-context";
-import Template from "../models/template";
+import { TemplatesContext } from "../../../store/templates-context";
+import Template from "../../models/template";
 import Multiselect from "multiselect-react-dropdown";
 
 import toggleBtnClasses from "./ToggleButton.module.scss";
