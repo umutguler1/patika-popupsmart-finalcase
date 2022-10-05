@@ -26,7 +26,6 @@ const Templates = () => {
     indexOfFirstTemplate,
     indexOfLastTemplate
   );
-
   return (
     <div className="grid px-52 gap-2 py-8">
       <h1 className="text-4xl font-bold mt-8">Modal Card Generator</h1>
@@ -41,7 +40,10 @@ const Templates = () => {
         </p>
         <h3 className="text-lg font-semibold">Choose your template</h3>
       </div>
-      <div className="grid grid-cols-4 place-items-center">
+      <div
+        data-testid="current-templates"
+        className="grid grid-cols-4 place-items-center"
+      >
         {currentTemplates.map((t) => (
           <div
             key={t.props.id}
@@ -54,7 +56,7 @@ const Templates = () => {
               className="grid transition-all absolute rounded-3xl text-2xl font-semibold opacity-0 hover:opacity-100 hover:bg-custom-purple hover:bg-opacity-60 pointer-events-auto w-full h-full"
             >
               <div className="px-8 py-7 bg-custom-white place-self-center text-custom-purple rounded-xl w-fit">
-                Select Templates
+                Select Template
               </div>
             </button>
           </div>

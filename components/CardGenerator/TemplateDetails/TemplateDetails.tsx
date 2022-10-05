@@ -172,7 +172,11 @@ const TemplateDetails = () => {
   return (
     <Fragment>
       <div className="grid">
-        <div className="flex items-center space-x-4 mt-12">
+        <p>hi there</p>
+        <div
+          data-testid="get-code-button"
+          className="flex items-center space-x-4 mt-12"
+        >
           <p className="flex p-2 bg-custom-dark-gray text-center rounded-full w-9 h-9 font-bold place-content-center items-center">
             2
           </p>
