@@ -57,11 +57,9 @@ const TemplateDetails = () => {
   // The functions below can only be triggered with a button. Therefore, setting the type "any" for the events is not a problem.
   const selectSizeHandler = (event: any) => {
     setSelectedButton(event.target.innerText);
-    // HANDLE THE SIZE CHANGE
   };
   const selectPositionHandler = (event: any) => {
     setSelectedPosition(event.target.id);
-    // HANDLE THE POSITION CHANGE
   };
 
   const changeColorHandler = (event: any) => {
@@ -157,11 +155,11 @@ const TemplateDetails = () => {
   const submitHandler = (event: any) => {
     event.preventDefault();
 
-    // console.log(secondsRef.current!.value);
-    // console.log(scrollRef.current!.value);
-    // console.log(trafficSourceRef.current);
+    console.log(secondsRef.current!.value); // we know that the current value cannot be undefined in this situation.
+    console.log(scrollRef.current!.value);
+    console.log(trafficSourceRef.current);
     const selectedLanguages = browserLanguageRef.current.getSelectedItems();
-    // console.log(selectedLanguages);
+    console.log(selectedLanguages);
     setGetCodeClicked(true);
   };
 
@@ -455,10 +453,12 @@ const TemplateDetails = () => {
           </div>
         </form>
       </div>
-      <CustomizedPopup
-        template={selectedTemplate.template}
-        templateProps={templateProps}
-      />
+      <div className="hidden">
+        <CustomizedPopup
+          template={selectedTemplate.template}
+          templateProps={templateProps}
+        />
+      </div>
     </Fragment>
   );
 };

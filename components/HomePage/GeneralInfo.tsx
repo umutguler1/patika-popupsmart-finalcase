@@ -31,7 +31,7 @@ const GeneralInfo = () => {
       </h1>
       <h3 className="text-2xl w-[1200px]">
         A utility-first CSS framework packed with classes like flex, pt-4,
-        text-center and <br /> rotate-90 that can becomposed to build any
+        text-center and <br /> rotate-90 that can be composed to build any
         design, directly in your markup.
       </h3>
       <button

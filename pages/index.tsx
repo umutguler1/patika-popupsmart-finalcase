@@ -10,6 +10,7 @@ const Home: NextPage = () => {
           href="https://fonts.googleapis.com/css?family=Poppins"
           rel="stylesheet"
         />
+        <title>Home</title>
       </Head>
       <HomePage />
     </div>

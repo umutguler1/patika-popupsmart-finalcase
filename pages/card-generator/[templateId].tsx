@@ -15,6 +15,7 @@ const TemplateDetailPage: NextPage = () => {
           href="https://fonts.googleapis.com/css?family=Poppins"
           rel="stylesheet"
         />
+        <title>Customize the Card</title>
       </Head>
       <TemplateDetails />
       <FooterAd />

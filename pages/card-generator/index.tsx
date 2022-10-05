@@ -11,6 +11,7 @@ const cardGenerator: NextPage = () => {
           href="https://fonts.googleapis.com/css?family=Poppins"
           rel="stylesheet"
         />
+        <title>Choose a Template</title>
       </Head>
       <TemplateOptions />
     </div>
