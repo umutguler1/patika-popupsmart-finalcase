@@ -170,7 +170,6 @@ const TemplateDetails = () => {
   return (
     <Fragment>
       <div className="grid">
-        <p>hi there</p>
         <div
           data-testid="get-code-button"
           className="flex items-center space-x-4 mt-12"
